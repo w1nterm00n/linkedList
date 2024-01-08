@@ -49,7 +49,18 @@
             return count;
         }
 
-        return {head, nodeNull, Append, Prepend, ShowHead, Size};
+        const ShowTail = () => {
+             //tail returns the last node in the list
+            let node = head;
+            while (node) {
+                    if (node.next == null) {
+                        return node;
+                    }
+                node = node.next;
+            }
+        }
+
+        return {head, nodeNull, Append, Prepend, ShowHead, ShowTail, Size};
 
     };
 
