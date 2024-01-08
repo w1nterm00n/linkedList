@@ -60,7 +60,22 @@
             }
         }
 
-        return {head, nodeNull, Append, Prepend, ShowHead, ShowTail, Size};
+        const ShowNode = (index) => {
+            //at(index) returns the node at the given index
+            let i = 0; 
+            let node = head;
+            while (node) {
+                if (i == index) {
+                    return node;
+                } else {
+                    node = node.next;
+                    i++;
+                }
+            }
+            return;
+        }
+
+        return {head, nodeNull, Append, Prepend, ShowHead, ShowNode, ShowTail, Size};
 
     };
 
