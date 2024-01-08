@@ -75,7 +75,38 @@
             return;
         }
 
-        return {head, nodeNull, Append, Prepend, ShowHead, ShowNode, ShowTail, Size};
+        //contains(value) returns true if the passed in value is in the list and otherwise returns false.
+        const Contains = (value) => { 
+            let node = head;
+            while (node) {
+                if (node.value == value) {
+                    return true;
+                }
+                node = node.next
+            }
+            return false;
+        }
+
+        const Find = (value) => { 
+            let index = 0;
+            let node = head;
+            while (node) {
+                if (node.value == value) {
+                    return index;
+                }
+                node = node.next
+                index++;
+            }
+            return null;
+        }
+
+        //pop removes the last element from the list
+        // const Pop = () => {
+        //     let node = head;
+
+        // }
+
+        return {head, nodeNull, Append, Prepend, ShowHead, ShowNode, ShowTail, Size, Contains, Find};
 
     };
 
