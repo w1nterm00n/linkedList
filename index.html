@@ -101,12 +101,29 @@
         }
 
         //pop removes the last element from the list
-        // const Pop = () => {
-        //     let node = head;
+        const Pop = () => {
+            let size = Size() -1;
+            let previousNode = ShowNode(size-1);
+            previousNode.next = null;
+            return;
+        }
 
-        // }
+        const toString = () => {
+            let node = head;
+            let input = "";
+            while (node) {
+                input = input + "(" + node.value + ") -> ";
+                    if (node.next == null) {
+                        input = input + "null";
+                        return input;
+                    }
+                node = node.next
+            }
+            return input;
+        }
 
-        return {head, nodeNull, Append, Prepend, ShowHead, ShowNode, ShowTail, Size, Contains, Find};
+        return {head, nodeNull, Append, Prepend, ShowHead, ShowNode, 
+            ShowTail, Size, Contains, Find, Pop, toString};
 
     };
 
@@ -120,5 +137,8 @@
 
 
     const list = LinkedList();
+    list.Append('one');
+    list.Append('two');
+    list.Append('three');
 </script>
 </html>
