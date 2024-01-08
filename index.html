@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked list</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    const LinkedList = () => {
+        let nodeNull = new Node (null, null);
+        let head = new Node('head', nodeNull);
+
+        const Append = (value) => {
+            let node = head;
+            while (node) {
+                if (node.next == null) {
+                    var newNode = new Node (value, nodeNull);
+                    node.next = newNode;
+                    return;
+                }
+                node = node.next;
+            }
+        }
+
+        const Prepend = (value) => {
+            //prepend(value) adds a new node containing value to the start of the list
+            var newNode = new Node (value);
+            newNode.next = head.next;
+            head.next = newNode;
+        }
+
+        const ShowHead = () => {
+            console.log(head);
+        }
+       
+        const Size = () => {
+            let count = 0; 
+            let node = head;
+            while (node) {
+                count++;
+                node = node.next
+            }
+            return count;
+        }
+
+        return {head, nodeNull, Append, Prepend, ShowHead, Size};
+
+    };
+
+
+    class Node {
+        constructor(value) {
+            this.value = value
+            this.next = null              
+        }
+    }
+
+
+    const list = LinkedList();
+</script>
+</html>
